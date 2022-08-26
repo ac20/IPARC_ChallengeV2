@@ -3,7 +3,7 @@
 
 ## Notes
 
-All the code to generate the dataset is given in `GenerateDataset.py`. 
+Run 'python GenerateDataset.py` to generate the dataset.
 
 ### Category A (Simple)
 
