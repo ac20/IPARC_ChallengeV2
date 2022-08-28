@@ -52,3 +52,7 @@ The generated input-output pairs for each task are saved in `./Dataset/CatB_Sele
 Here the aim is to invent "Iterate k times" predicate. "k" is to be learnt. Each task has a set of subtasks (3) which share a common iteration. This should be learnt.
 
 The generated input-output pairs for each task are saved in `./Dataset/CatB_Iteration/Task***.json`. The sequence for each subtask is saved at `./Dataset/CatB_Iteration/Task***_soln.txt` by default.
+
+#### Category B - Hard
+
+The hard tasks in category B combine all the three - Sequence, Iteration and Selection. The examples within each task consist of Selection of a few pixels using Hit-ot-Miss transform, and transforming them using Iteration and transforming the other pixels using Sequence.
