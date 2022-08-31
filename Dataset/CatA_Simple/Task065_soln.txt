@@ -1,0 +1,8 @@
+Dilation SE1
+Dilation SE0
+Dilation SE7
+Dilation SE6
+Erosion SE1
+Erosion SE0
+Erosion SE7
+Erosion SE6

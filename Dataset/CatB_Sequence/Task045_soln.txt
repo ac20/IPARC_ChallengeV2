@@ -1,0 +1,33 @@
+Subtask 
+-------- 
+Dilation SE7
+Dilation SE2
+ Erosion SE7
+ Erosion SE2
+Dilation SE2
+Dilation SE0
+ Erosion SE2
+ Erosion SE0
+
+Subtask 
+-------- 
+Dilation SE5
+Dilation SE2
+ Erosion SE5
+ Erosion SE2
+Dilation SE2
+Dilation SE0
+ Erosion SE2
+ Erosion SE0
+
+Subtask 
+-------- 
+Dilation SE0
+Dilation SE5
+ Erosion SE0
+ Erosion SE5
+Dilation SE2
+Dilation SE0
+ Erosion SE2
+ Erosion SE0
+

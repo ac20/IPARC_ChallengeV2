@@ -1,0 +1,11 @@
+Hit-Or-Miss SE4 
+Band 1 - Iterate 2 times Dilation SE4 
+Band 1 - Iterate 2 times Erosion SE4 
+Band 2 - Dilation SE4 
+Band 2 - Dilation SE5 
+Band 2 - Dilation SE3 
+Band 2 - Dilation SE3 
+Band 2 - Erosion SE5 
+Band 2 - Erosion SE3 
+Band 2 - Erosion SE3 
+Color rule : [[0, 0, 0], [0, 1, 2], [1, 0, 1], [1, 1, 2]]

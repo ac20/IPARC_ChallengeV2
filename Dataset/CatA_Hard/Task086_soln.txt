@@ -1,0 +1,37 @@
+Sequence for Band 1
+---------------------- 
+Dilation SE0
+Dilation SE0
+Dilation SE4
+Dilation SE6
+Erosion SE0
+Erosion SE0
+Erosion SE4
+Erosion SE6
+
+Sequence for Band 2
+---------------------- 
+Dilation SE2
+Dilation SE6
+Dilation SE1
+Dilation SE6
+Erosion SE2
+Erosion SE6
+Erosion SE1
+Erosion SE6
+
+Sequence for Band 3
+---------------------- 
+Dilation SE0
+Dilation SE4
+Dilation SE6
+Dilation SE3
+Erosion SE0
+Erosion SE4
+Erosion SE6
+Erosion SE3
+
+
+ Color Change Rule 
+------------------
+[[0, 0, 0, 0], [0, 0, 1, 2], [0, 1, 0, 3], [0, 1, 1, 2], [1, 0, 0, 2], [1, 0, 1, 2], [1, 1, 0, 3], [1, 1, 1, 1]]
