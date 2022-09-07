@@ -1,11 +1,11 @@
 Hit-Or-Miss SE7 
-Band 1 - Dilation SE5 
 Band 1 - Dilation SE6 
-Band 1 - Erosion SE5 
+Band 1 - Dilation SE7 
 Band 1 - Erosion SE6 
+Band 1 - Erosion SE7 
+Band 2 - Dilation SE8 
+Band 2 - Dilation SE5 
 Band 2 - Dilation SE7 
-Band 2 - Dilation SE4 
-Band 2 - Dilation SE6 
-Band 2 - Erosion SE4 
-Band 2 - Erosion SE6 
+Band 2 - Erosion SE5 
+Band 2 - Erosion SE7 
 Color rule : [[0, 0, 0], [0, 1, 2], [1, 0, 1], [1, 1, 2]]

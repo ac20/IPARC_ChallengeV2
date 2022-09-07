@@ -122,18 +122,40 @@ def write_solution_CatB_Hard(list_se_idx, k_iterate, fname):
     """
     color_rule = np.array([[0, 0, 0], [0, 1, 2], [1, 0, 1], [1, 1, 2]], dtype=np.int32)
     with open(fname, 'w') as f:
-        f.write("Hit-Or-Miss SE{} \n".format(list_se_idx[0]))
-        f.write("Band 1 - Iterate {} times Dilation SE{} \n".format(k_iterate, list_se_idx[2]))
-        f.write("Band 1 - Iterate {} times Erosion SE{} \n".format(k_iterate, list_se_idx[2]))
-        f.write("Band 2 - Dilation SE{} \n".format(list_se_idx[0]))
-        f.write("Band 2 - Dilation SE{} \n".format(list_se_idx[3]))
-        f.write("Band 2 - Dilation SE{} \n".format(list_se_idx[4]))
-        f.write("Band 2 - Dilation SE{} \n".format(list_se_idx[5]))
-        f.write("Band 2 - Erosion SE{} \n".format(list_se_idx[3]))
-        f.write("Band 2 - Erosion SE{} \n".format(list_se_idx[4]))
-        f.write("Band 2 - Erosion SE{} \n".format(list_se_idx[5]))
+        f.write("Hit-Or-Miss SE{} \n".format(list_se_idx[0]+1))
+        f.write("Band 1 - Iterate {} times Dilation SE{} \n".format(k_iterate, list_se_idx[2]+1))
+        f.write("Band 1 - Iterate {} times Erosion SE{} \n".format(k_iterate, list_se_idx[2]+1))
+        f.write("Band 2 - Dilation SE{} \n".format(list_se_idx[0]+1))
+        f.write("Band 2 - Dilation SE{} \n".format(list_se_idx[3]+1))
+        f.write("Band 2 - Dilation SE{} \n".format(list_se_idx[4]+1))
+        f.write("Band 2 - Dilation SE{} \n".format(list_se_idx[5]+1))
+        f.write("Band 2 - Erosion SE{} \n".format(list_se_idx[3]+1))
+        f.write("Band 2 - Erosion SE{} \n".format(list_se_idx[4]+1))
+        f.write("Band 2 - Erosion SE{} \n".format(list_se_idx[5]+1))
         f.write("Color rule : {}".format(json.dumps([[int(y) for y in x] for x in color_rule])))
         f.write("\n")
+
+
+def write_solution_CatB_Hard_json(list_se_idx, k_iterate, fname):
+    """
+    Band, iterate, op, se
+    """
+    color_rule = np.array([[0, 0, 0], [0, 1, 2], [1, 0, 1], [1, 1, 2]], dtype=np.int32)
+    data = []
+    data.append((None, 1, "Hit-Or-Miss", "SE{}".format(list_se_idx[0]+1)))
+    data.append((1, k_iterate, "Dilation", "SE{}".format(list_se_idx[2]+1)))
+    data.append((1, k_iterate, "Erosion", "SE{}".format(list_se_idx[2]+1)))
+    data.append((2, 1, "Dilation", "SE{}".format(list_se_idx[0]+1)))
+    data.append((2, 1, "Dilation", "SE{}".format(list_se_idx[3]+1)))
+    data.append((2, 1, "Dilation", "SE{}".format(list_se_idx[4]+1)))
+    data.append((2, 1, "Dilation", "SE{}".format(list_se_idx[5]+1)))
+    data.append((2, 1, "Erosion", "SE{}".format(list_se_idx[3]+1)))
+    data.append((2, 1, "Erosion", "SE{}".format(list_se_idx[4]+1)))
+    data.append((2, 1, "Erosion", "SE{}".format(list_se_idx[5]+1)))
+    data.append((None, 1, "change_color", [[int(y) for y in x] for x in color_rule]))
+
+    with open(fname, "w") as f:
+        f.write(json.dumps(data))
 
 
 def generate_100_tasks_CatB_Hard(seed, **param):
@@ -148,6 +170,9 @@ def generate_100_tasks_CatB_Hard(seed, **param):
 
         fname = './Dataset/CatB_Hard/Task{:03d}_soln.txt'.format(task_no)
         write_solution_CatB_Hard(list_se_idx, k_iterate, fname)
+
+        fname = './Dataset/CatB_Hard/Task{:03d}_soln.json'.format(task_no)
+        write_solution_CatB_Hard_json(list_se_idx, k_iterate, fname)
 
 
 if __name__ == "__main__":

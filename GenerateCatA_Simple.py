@@ -85,9 +85,9 @@ def write_solution_CatA_Simple(list_se_idx, fname):
     """
     with open(fname, 'w') as f:
         for idx in list_se_idx:
-            f.write("Dilation SE{}\n".format(idx))
+            f.write("Dilation SE{}\n".format(idx+1))
         for idx in list_se_idx:
-            f.write("Erosion SE{}\n".format(idx))
+            f.write("Erosion SE{}\n".format(idx+1))
 
 
 def generate_100_tasks_CatA_Simple(seed, **param):

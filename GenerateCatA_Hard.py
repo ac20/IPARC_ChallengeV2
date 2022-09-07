@@ -120,9 +120,9 @@ def write_solution_CatA_Hard(list_se_idx, color_rule, fname):
             f.write("Sequence for Band {}\n".format(band))
             f.write("---------------------- \n")
             for idx in list_se_color:
-                f.write("Dilation SE{}\n".format(idx))
+                f.write("Dilation SE{}\n".format(idx+1))
             for idx in list_se_color:
-                f.write("Erosion SE{}\n".format(idx))
+                f.write("Erosion SE{}\n".format(idx+1))
 
             band += 1
 
@@ -131,6 +131,27 @@ def write_solution_CatA_Hard(list_se_idx, color_rule, fname):
         f.write("\n Color Change Rule \n")
         f.write("------------------\n")
         f.write(json.dumps([[int(y) for y in x] for x in color_rule]))
+
+
+def write_solution_CatA_Hard_json(list_se_idx, color_rule, fname):
+    """
+    Solution written in format:
+    band - 1/2/3/None
+    op - Dilation/Erosion/Color_Change
+    SE = SE0-SE7
+    """
+    data = []
+    band = 1
+    for list_se_color in list_se_idx:
+        for idx in list_se_color:
+            data.append((band, 'Dilation', 'SE{}'.format(idx+1)))
+        for idx in list_se_color:
+            data.append((band, 'Erosion', 'SE{}'.format(idx+1)))
+        band += 1
+
+    data.append((None, 'color_rule', (([[int(y) for y in x] for x in color_rule]))))
+    with open(fname, "w") as f:
+        f.write(json.dumps(data))
 
 
 def generate_100_tasks_CatA_Hard(seed, **param):
@@ -145,6 +166,9 @@ def generate_100_tasks_CatA_Hard(seed, **param):
 
         fname = './Dataset/CatA_Hard/Task{:03d}_soln.txt'.format(task_no)
         write_solution_CatA_Hard(list_se_idx, color_rule, fname)
+
+        fname = './Dataset/CatA_Hard/Task{:03d}_soln.json'.format(task_no)
+        write_solution_CatA_Hard_json(list_se_idx, color_rule, fname)
 
 
 if __name__ == "__main__":

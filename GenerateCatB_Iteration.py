@@ -114,16 +114,43 @@ def write_solution_CatB_Iteration(list_se_idx, k_iterate, fname):
             f.write("-------- \n")
             i = 0
             while i < 2:
-                f.write("Dilation SE{}\n".format(list_se_idx_subtask[i]))
+                f.write("Dilation SE{}\n".format(list_se_idx_subtask[i]+1))
                 i += 1
             i = 0
             while i < 2:
-                f.write(" Erosion SE{}\n".format(list_se_idx_subtask[i]))
+                f.write(" Erosion SE{}\n".format(list_se_idx_subtask[i]+1))
                 i += 1
             i = 2
-            f.write("Iterate {} Dilation SE{}\n".format(k_iterate, list_se_idx_subtask[i]))
-            f.write("Iterate {}  Erosion SE{}\n".format(k_iterate, list_se_idx_subtask[i]))
+            f.write("Iterate {} Dilation SE{}\n".format(k_iterate, list_se_idx_subtask[i]+1))
+            f.write("Iterate {}  Erosion SE{}\n".format(k_iterate, list_se_idx_subtask[i]+1))
             f.write("\n")
+
+
+def write_solution_CatB_Iteration_json(list_se_idx, k_iterate, fname):
+    """
+    Solution written in format:
+    subtask - 
+    n_iterate -
+    op - Dilation/Erosion/Color_Change
+    SE = SE0-SE7
+    """
+    data = []
+    subtask = 0
+    for list_se_idx_subtask in list_se_idx:
+        i = 0
+        while i < 2:
+            data.append((subtask, 1, 'Dilation', 'SE{}'.format(list_se_idx_subtask[i]+1)))
+            i += 1
+        i = 0
+        while i < 2:
+            data.append((subtask, 1, 'Erosion', 'SE{}'.format(list_se_idx_subtask[i]+1)))
+            i += 1
+        data.append((subtask, k_iterate, 'Dilation', 'SE{}'.format(list_se_idx_subtask[i]+1)))
+        data.append((subtask, k_iterate, 'Erosion', 'SE{}'.format(list_se_idx_subtask[i]+1)))
+        subtask += 1
+
+    with open(fname, "w") as f:
+        f.write(json.dumps(data))
 
 
 def generate_100_tasks_CatB_Iteration(seed, **param):
@@ -140,6 +167,9 @@ def generate_100_tasks_CatB_Iteration(seed, **param):
 
         fname = './Dataset/CatB_Iteration/Task{:03d}_soln.txt'.format(task_no)
         write_solution_CatB_Iteration(list_se_idx, k_iterate, fname)
+
+        fname = './Dataset/CatB_Iteration/Task{:03d}_soln.json'.format(task_no)
+        write_solution_CatB_Iteration_json(list_se_idx, k_iterate, fname)
 
 
 if __name__ == "__main__":

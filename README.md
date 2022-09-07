@@ -1,6 +1,12 @@
 # IPARC_ChallengeV2
 
 
+## List of Structuring Elements Used
+
+Yellow indicates 1 and purple indicates 0.
+
+![Alt text](./img/SE.png "List of Structuring Elements Used.")
+
 ## Notes
 
 Run `python GenerateDataset.py` to generate the dataset.

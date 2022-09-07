@@ -1,35 +1,35 @@
 Sequence for Band 1
 ---------------------- 
-Dilation SE6
-Dilation SE4
-Dilation SE6
-Dilation SE6
-Erosion SE6
-Erosion SE4
-Erosion SE6
-Erosion SE6
+Dilation SE7
+Dilation SE5
+Dilation SE7
+Dilation SE7
+Erosion SE7
+Erosion SE5
+Erosion SE7
+Erosion SE7
 
 Sequence for Band 2
 ---------------------- 
-Dilation SE5
-Dilation SE3
-Dilation SE4
 Dilation SE6
-Erosion SE5
-Erosion SE3
-Erosion SE4
+Dilation SE4
+Dilation SE5
+Dilation SE7
 Erosion SE6
+Erosion SE4
+Erosion SE5
+Erosion SE7
 
 Sequence for Band 3
 ---------------------- 
-Dilation SE3
 Dilation SE4
-Dilation SE3
-Dilation SE1
-Erosion SE3
+Dilation SE5
+Dilation SE4
+Dilation SE2
 Erosion SE4
-Erosion SE3
-Erosion SE1
+Erosion SE5
+Erosion SE4
+Erosion SE2
 
 
  Color Change Rule 

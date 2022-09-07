@@ -1,0 +1,1 @@
+[[null, "Hit-Or-Miss", "SE7"], [1, "Dilation", "SE3"], [1, "Dilation", "SE1"], [1, "Erosion", "SE3"], [1, "Erosion", "SE1"], [2, "Dilation", "SE7"], [2, "Dilation", "SE5"], [2, "Dilation", "SE5"], [2, "Erosion", "SE5"], [2, "Erosion", "SE5"], [null, "change_color", [[0, 0, 0], [0, 1, 2], [1, 0, 1], [1, 1, 2]]]]
