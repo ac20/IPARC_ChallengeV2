@@ -1,5 +1,10 @@
 # IPARC_ChallengeV2
 
+## Description
+
+The aim of the IPARC Challenge is to identify if there exists an ILP engine capable of handling `Selection` `Iteration` and `Sequence` aspects of  [Böhm–Jacopini theorem](https://en.wikipedia.org/wiki/Structured_program_theorem). 
+
+Please see the [presentation](./img/presentation.pdf) for details.
 
 ## List of Structuring Elements Used
 
