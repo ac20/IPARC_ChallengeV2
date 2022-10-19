@@ -67,3 +67,25 @@ The generated input-output pairs for each task are saved in `./Dataset/CatB_Iter
 #### Category B - Hard
 
 The hard tasks in category B combine all the three - Sequence, Iteration and Selection. The examples within each task consist of Selection of a few pixels using Hit-ot-Miss transform, and transforming them using Iteration and transforming the other pixels using Sequence.
+
+### Testing a sequence
+
+The file  `TestSequence.py` allows for testing whether a particular sequence works. The predicates are addressed in the following format [band]-[Operator]-[SE or Arr]-[number of iterate]. A `.json` file with the input and output pairs is provided to the program alond with a sequence of predicates.
+
+An example is described below
+
+```
+python TestSequence.py ./Dataset/CatB_Hard/Task000.json 1-HitOrMiss-SE8-1 1-Dilation-SE6-2 1-Erosion-SE6-2  2-Dilation-SE8-1 2-Dilation-SE7-1 2-Dilation-SE5-1 2-Dilation-SE7-1 2-Erosion-SE7-1 2-Erosion-SE5-1 2-Erosion-SE7-1 1-ChangeColor-[[0,0,0],[0,1,2],[1,0,1],[1,1,2]]-1
+```
+
+tries to find whether the sequence explains the examples in `./Dataset/CatB_Hard/Task000.json`. 
+
+### Accessing individual predicates
+
+To get an output of each predicate we provide `TestPredicate.py`. The predicates are addressed in the following format [band]-[Operator]-[SE or Arr]-[number of iterate]. A `.json` file with the input images is to be used. The output for the inputs images is written in `.json` format. For example
+
+```
+python TestPredicate.py ./Dataset/CatB_Hard/Task000.json 1-HitOrMiss-SE8-1 > test.json
+```
+
+writes the output to `test.json` which can be processed further. 

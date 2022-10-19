@@ -1,20 +1,6 @@
 #!/usr/bin/python
 
 """
-Possible shell commands
-
-Dilation SEx
-Erosion SEx
-Hit-Or-Miss SEx
-ChangeColor [[a1,a2,a3],[b1,b2,b3]]
-
-Example 
-fname.json band-Dilation-SE1-iterate band-Erosion-SE2-iterate band-HitorMiss-SE2-iterate band-ChangeColor-[[a1,a2,a3],[b1,b2,b3]]-iterate
-
-./Dataset/CatB_Hard/Task000.json 1-HitOrMiss-SE8-1 1-Dilation-SE6-2 1-Erosion-SE6-2  2-Dilation-SE8-1 2-Dilation-SE7-1 2-Dilation-SE5-1 2-Dilation-SE7-1 2-Erosion-SE7-1 2-Erosion-SE5-1 2-Erosion-SE7-1 1-ChangeColor-[[0,0,0],[0,1,2],[1,0,1],[1,1,2]]-1
-
-will check if the given sequence satisfies the tasks in <fname>.json
-
 """
 
 import os.path
@@ -33,6 +19,18 @@ import random
 from ListSelEm import *
 from Utils import Process, Change_Colour
 
+def write_output_json(data):
+    """
+    """
+    dict_data = []
+    for tmp in data:
+        if len(tmp.shape) == 2:
+            out = [[int(y) for y in x] for x in tmp]
+        elif len(tmp.shape) == 3:
+            out = [[[int(x3) for x3 in x2] for x2 in x1] for x1 in tmp]
+        dict_data.append({"input": out})
+
+    print(json.dumps(dict_data))
 
 def perform_op(fname, list_ops):
     def _perform_task(img, k_iterate, op, se):
@@ -57,6 +55,7 @@ def perform_op(fname, list_ops):
     with open(fname, 'r') as f:
         data = json.load(f)
 
+    out = []
     for d in data:
         img = np.array(d['input'], dtype=np.int32)
         if len(img.shape) == 2:
@@ -70,12 +69,9 @@ def perform_op(fname, list_ops):
             else:
                 img = _perform_task(img, k_iterate, op, se)
         img = img*1
-        out = np.array(d['output'], dtype=np.int32)
-        check_same = np.all(img == out)
-        if check_same:
-            print("Program works!!")
-        else:
-            print("Something went wrong!!")
+        out.append(img)
+    write_output_json(out)
+        
 
 
 if __name__ == '__main__':
