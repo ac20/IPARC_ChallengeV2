@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import os
 
 # from skimage.morphology import binary_dilation, binary_erosion
-from scipy.ndimage.morphology import binary_dilation, binary_erosion, binary_hit_or_miss
+from scipy.ndimage import binary_dilation, binary_erosion, binary_hit_or_miss
 import random
 
 from ListSelEm import *
