@@ -4,7 +4,7 @@
 
 The aim of the IPARC Challenge is to identify if there exists an ILP engine capable of handling `Selection` `Iteration` and `Sequence` aspects of  [Böhm–Jacopini theorem](https://en.wikipedia.org/wiki/Structured_program_theorem). 
 
-Please see the [presentation](./img/IJCLR2022_Slides.pdf) for details.
+Please see the [presentation](./img/IJCLR2022_Slides.pdf) and the [article](./img/ARC.pdf) for details.
 
 ## List of Structuring Elements Used
 
@@ -89,3 +89,4 @@ python TestPredicate.py ./Dataset/CatB_Hard/Task000.json 1-HitOrMiss-SE8-1 > tes
 ```
 
 writes the output to `test.json` which can be processed further. 
+
