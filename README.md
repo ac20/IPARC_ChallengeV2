@@ -2,15 +2,34 @@
 
 ## Description
 
-The aim of the IPARC Challenge is to identify if there exists an ILP engine capable of handling `Selection` `Iteration` and `Sequence` aspects of  [Böhm–Jacopini theorem](https://en.wikipedia.org/wiki/Structured_program_theorem). 
+The aim of the IPARC Challenge is to identify if there exists an ILP engine capable of handling `Selection` `Iteration` and `Sequence` aspects of  [Böhm–Jacopini theorem](https://en.wikipedia.org/wiki/Structured_program_theorem). Please see the [presentation](./img/IJCLR2022_Slides.pdf) and the [article](./img/ARC.pdf) for details.
 
-Please see the [presentation](./img/IJCLR2022_Slides.pdf) and the [article](./img/ARC.pdf) for details.
+This repo contains the [dataset](./Dataset/), the [code](./GenerateDataset.py) which is used to generate the dataset, as well as target programs. We use `.json` file format for the input/output to the programs. The target programs are also written in `.txt` files.
 
-## List of Structuring Elements Used
+Directory Structure of [dataset](./Dataset/)
 
-Yellow indicates 1 and purple indicates 0.
+```
+Dataset/
+    CatA_Hard/
+        Task***.json 
+        Task***_soln.json 
+        Task***_soln.txt
+    CatA_Simple/
+    CatB_Selection/
+    CatB_Iteration/
+    CatB_Sequence/
+    CatB_Hard/        
+```
+
+## Target Programs
+
+The target program is a sequence of predicates, where each predicates has 4 elements - (i) Band (ii) Operator (iii) The structuring element or array (iv) Number of iterations. For example `1-HitOrMiss-SE8-2` operates on Band-1, using `HitOrMiss` with structuring element `SE8` and is repeated `2` times. 
+
+The structuring elements for the morphological operators are described below. (Yellow indicates 1 and purple indicates 0.)
 
 ![Alt text](./img/SE.png "List of Structuring Elements Used.")
+
+`TestPredicate.py` allows one to test each predicate on a given set of images. (See section [Accessing individual predicates](#accessing-individual-predicates) below for more details.)
 
 ## Notes
 
@@ -89,4 +108,7 @@ python TestPredicate.py ./Dataset/CatB_Hard/Task000.json 1-HitOrMiss-SE8-1 > tes
 ```
 
 writes the output to `test.json` which can be processed further. 
+
+
+
 
